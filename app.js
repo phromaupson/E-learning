@@ -42,4 +42,10 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
+app.get('*', function(req, res, next) {
+    //การประกาศใน ทุกๆ method get ประกาศตัวแปร user ให้ใช้ทั้งหมด 
+    res.locals.user = req.user || null
+    next();
+});
+
 module.exports = app;
