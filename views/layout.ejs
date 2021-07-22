@@ -11,8 +11,14 @@
       </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="/users/register">สมัครเรียน</a>
-                <a class="nav-link" href="#">เข้าใช้งาน</a>
+                <% if(locals.user) { %>
+                    <a href="/" class="nav-link">Member</a>
+                    <a href="/users/logout" class="nav-link">Logout</a>
+                    <% } %>
+                        <% if(!locals.user) { %>
+                            <a class="nav-link" href="/users/register">ลงทะเบียน</a>
+                            <a class="nav-link" href="/users/login">เข้าใช้งาน</a>
+                            <% } %>
             </div>
         </div>
     </div>
