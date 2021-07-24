@@ -21,11 +21,19 @@ router.get('/login', function(req, res, next) {
     res.render('users/login')
 });
 
+router.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/users/login');
+});
+
 router.post('/login', passport.authenticate('local', {
     failureRedirect: '/users/login',
     failureFlash: true
 }), function(req, res) {
-    res.redirect('/');
+    //จะแยกส่วนผู้ใช้ นักเรียน กับอาจาย์ นักเรียนเข้าของนักเรียน อาจารย์ก็เข้าของอาจารย์
+    var usertype = req.user.type;
+    res.redirect(`/${usertype}s/classes`);
+    // res.redirect('/' + usertype + 's/classes');
 });
 
 passport.serializeUser(function(user, done) {
@@ -42,16 +50,15 @@ passport.use(new LocalStrategy(function(username, password, done) {
     User.getUserByUserName(username, function(err, user) {
         //เปรียบเทียบชื่อ
         if (err) throw error
+        console.log(user);
         if (!user) {
             //ไม่พบผู้ใช้ในระบบ
             return done(null, false)
-        } else {
-            //หาเจอ
-            return done(null, user)
         }
         //เปรียบเทียบรหัสผ่าน
         User.comparePassword(password, user.password, function(err, isMatch) {
             if (err) throw error
+            console.log(isMatch);
             if (isMatch) {
                 //รหัสผ่านตรง
                 return done(null, user)

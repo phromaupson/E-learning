@@ -3,7 +3,7 @@ var router = express.Router();
 var Classes = require("../models/classes");
 
 /* GET home page. */
-router.get('/', enSureAuthenticated, function(req, res, next) {
+router.get('/', function(req, res, next) {
     Classes.getClasses(function(err, classes) {
         res.render('index', { classes: classes });
     })

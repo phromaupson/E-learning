@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include('../layout') %>
+        <div class="container">
+            <h2 align="center">Hello :
+                <%= instructor.username %>
+            </h2>
+            <hr>
+            <h2 align="center">Add Class</h2>
+            <form form="form-group" action="./classes/register" method="POST">
+                <label for="">รหัสวิชา</label>
+                <input type="text" name="class_id" value="" class="form-control">
+                <label for="">ชื่อวิชา</label>
+                <input type="text" name="class_name" value="" class="form-control">
+                <label for="">คำอธิบาย</label>
+                <textarea name="description" id="" cols="80" rows="8" class="form-control mb-3"></textarea>
+                <input type="hidden" name="instructor" value="<%= instructor.fname %>">
+            </form>
+
+            <input type="submit" name="" value="สร้างรายวิชา" class="btn btn-primary">
+        </div>
+</body>
+
+</html>

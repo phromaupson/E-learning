@@ -26,3 +26,11 @@ var instructorSchema = mongoose.Schema({
     }
 });
 var Instructor = module.exports = mongoose.model('instructors', instructorSchema)
+
+//ชื่อของอาจารย์คนนั้นๆมาแสดง
+module.exports.getInstructorsByUserName = function(username, callback) {
+    var query = {
+        username: username
+    }
+    Instructor.findOne(query, callback);
+}
