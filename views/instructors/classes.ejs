@@ -12,21 +12,26 @@
     <%- include('../layout') %>
         <div class="container">
             <h2 align="center">Hello :
-                <%= instructor.username %>
+                <%= instructor.fname %>
             </h2>
             <hr>
             <h2 align="center">Add Class</h2>
-            <form form="form-group" action="./classes/register" method="POST">
-                <label for="">รหัสวิชา</label>
-                <input type="text" name="class_id" value="" class="form-control">
-                <label for="">ชื่อวิชา</label>
-                <input type="text" name="class_name" value="" class="form-control">
-                <label for="">คำอธิบาย</label>
-                <textarea name="description" id="" cols="80" rows="8" class="form-control mb-3"></textarea>
+            <form form="form-group" action="/classes/register" method="POST">
+                <div class="form-group">
+                    <label for="">รหัสวิชา</label>
+                    <input type="text" name="class_id" value="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">ชื่อวิชา</label>
+                    <input type="text" name="class_name" value="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">คำอธิบาย</label>
+                    <textarea name="description" id="" cols="80" rows="8" class="form-control"></textarea>
+                </div>
                 <input type="hidden" name="instructor" value="<%= instructor.fname %>">
+                <input type="submit" name="" value="สร้างรายวิชา" class="btn btn-primary">
             </form>
-
-            <input type="submit" name="" value="สร้างรายวิชา" class="btn btn-primary">
         </div>
 </body>
 

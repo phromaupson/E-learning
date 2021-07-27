@@ -14,6 +14,7 @@ var db = mongoose.connection;
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var instructorRouter = require('./routes/instructors');
+var classesRouter = require('./routes/classes');
 
 var app = express();
 
@@ -54,5 +55,6 @@ app.get('*', function(req, res, next) {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/instructors', instructorRouter);
+app.use('/classes', classesRouter);
 
 module.exports = app;
