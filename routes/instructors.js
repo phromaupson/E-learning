@@ -8,4 +8,8 @@ router.get('/classes', function(req, res, next) {
     });
 });
 
+router.get('/classes/:id/lession/new', function(req, res, next) {
+    res.render('instructors/newlession', { class_id: req.params.id })
+});
+
 module.exports = router;
