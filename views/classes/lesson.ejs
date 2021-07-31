@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Class</title>
+</head>
+
+<body>
+    <%- include('../layout') %>
+        <div class="container">
+            <h2 align="center">Class :
+                <%= className.class_name %>
+            </h2>
+            <h3>บทที่ :
+                <%= lesson.lesson_number %>
+            </h3>
+            <h4>หัวข้อ :
+                <%= lesson.lesson_title %>
+            </h4>
+            <h6>
+                <%= lesson.lesson_body %>
+            </h6>
+            <br>
+
+            </table>
+            <br>
+        </div>
+</body>
+
+</html>

@@ -31,4 +31,23 @@ router.post('/register', (req, res) => {
     res.location('/instructors/classes');
     res.redirect('/instructors/classes');
 });
+//ดึงบทเรียนของคลาสนั้นมาแสดง
+router.get('/:id/lesson', function(req, res, next) {
+    Classes.getClassID([req.params.id], function(err, className) {
+        res.render('classes/viewlesson', { className: className })
+    });
+});
+//ดึงบทเรียนในคลาสนั้นๆพร้อมบอกบทเรียนอยู่ที่เท่าไหร่ละ
+router.get('/:id/lesson/:lesson_id', function(req, res, next) {
+    Classes.getClassID([req.params.id], function(err, className) {
+        var lesson;
+        for (var i = 0; i < className.lesson.length; i++) {
+            if (className.lesson[i].lesson_number == req.params.lesson_id) {
+                lesson = className.lesson[i];
+            }
+        }
+        res.render('classes/lesson', { className: className, lesson: lesson })
+    });
+});
+
 module.exports = router;

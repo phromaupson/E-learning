@@ -12,22 +12,23 @@
     <%- include('../layout') %>
         <div class="container">
             <h2 align="center">Class :
+                <%= class_id %>
             </h2>
             <br>
             <h5>Add Lession</h5>
             <hr>
-            <form form="form-group" action="/classes/register" method="POST">
+            <form form="form-group" action="/instructors/classes/<%= class_id %>/lesson/new" method="POST">
                 <div class="form-group">
                     <label for="">บทที่</label>
-                    <input type="text" name="class_id" value="" class="form-control">
+                    <input type="text" name="lesson_number" value="" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="">หัวข้อ</label>
-                    <input type="text" name="class_name" value="" class="form-control">
+                    <input type="text" name="lesson_title" value="" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="">รายละเอียด</label>
-                    <textarea name="description" id="" cols="80" rows="8" class="form-control"></textarea>
+                    <textarea name="lesson_body" id="" cols="80" rows="8" class="form-control"></textarea>
                 </div>
                 <input type="submit" name="" value="เพิ่มบทเรียน" class="btn btn-primary">
             </form>
