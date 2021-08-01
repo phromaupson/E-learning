@@ -21,6 +21,9 @@ var classSchema = mongoose.Schema({
     description: {
         type: String
     },
+    img_url: {
+        type: String
+    },
     instructor: {
         type: String
     },

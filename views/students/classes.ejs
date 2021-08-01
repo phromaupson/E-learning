@@ -25,7 +25,19 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    <% if(student.classes) { %>
+                        <% for ( var result of student.classes ){ %>
+                            <tr>
+                                <td>
+                                    <%= result.class_id %>
+                                </td>
+                                <td>
+                                    <%= result.class_title %>
+                                </td>
+                                <td><a href="/classes/<%= result.class_id %>/lesson" class="btn btn-success">View Lesson</a></td>
+                            </tr>
+                            <% } %>
+                                <% } %>
                 </tbody>
             </table>
         </div>

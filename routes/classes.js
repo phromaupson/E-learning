@@ -8,12 +8,14 @@ router.post('/register', (req, res) => {
     var class_name = req.body.class_name;
     var description = req.body.description;
     var instructor = req.body.instructor;
+    var img_url = req.body.img_url;
 
     var newClass = new Classes({
         class_id: class_id,
         class_name: class_name,
         description: description,
-        instructor: instructor
+        instructor: instructor,
+        img_url: img_url
     })
     info = [];
     info["instructor_user"] = req.user.username;

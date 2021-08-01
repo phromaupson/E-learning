@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>E-Learning System</title>
 </head>
 
 <body>
@@ -23,18 +23,24 @@
                 <div class="row">
                     <% Object.values(classes).forEach(function(classed){ %>
                         <div class="col-sm-4">
-                            <div class="card" style="width: 18rem;">
+                            <div class="card" style="width: 18rem; margin-top: 2px;">
+                                <img class="card-img-top" src="<%= classed.img_url %>">
                                 <div class="card-body">
-                                    <h5 class="card-title">
+                                    <h5 class="card-title">คลาส :
                                         <%= classed.class_name %>
                                     </h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">
+                                    <h6 class="card-subtitle mb-2 text-muted">อาจารย์ :
                                         <%= classed.instructor %>
                                     </h6>
                                     <p class="card-text">
                                         <%= classed.description %>
                                     </p>
-                                    <a href="#" class="card-link btn btn-primary">เข้าเรียน</a>
+                                    <form class="" action="/students/classes/register" method="POST">
+                                        <input type="hidden" name="student_username" value="<%= user.username %>">
+                                        <input type="hidden" name="class_id" value="<%= classed.class_id %>">
+                                        <input type="hidden" name="class_title" value="<%= classed.class_name %>">
+                                        <input type="submit" class="btn btn-primary" value="เข้าเรียน">
+                                    </form>
                                 </div>
                             </div>
                         </div>
